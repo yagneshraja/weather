@@ -1,0 +1,32 @@
+
+{% extends "base.html" %}
+
+
+
+{% block  content %}
+
+
+
+
+<br/>
+    
+
+    {% if api %}
+        {% if api == 'Error' %}
+            {{api}}
+
+        {%else%}
+        <div class="card {{ category_color   }}" style="width: 50rem;margin-left:200px;">
+            <div class="card-body {{api.0.Category.Name}}">
+              <h5 class="card-title">{{api.0.ReportingArea}}</h5>
+              <h6 class="card-text">Curent Air Quality -  {{api.0.AQI}} <span style="font-weight: bold;text-transform: uppercase;">{{api.0.Category.Name}}</span></h6>
+              <p class="card-text ">{{ category_description}}</p>
+            </div>
+          </div>
+        {% endif %}
+        
+    {% endif %}
+    
+    
+ 
+{% endblock  %}
